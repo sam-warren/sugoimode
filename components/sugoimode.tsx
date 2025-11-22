@@ -215,6 +215,10 @@ export function KanaTrainer() {
                   setAnswer(e.target.value);
                   if (result !== "idle") setResult("idle");
                 }}
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck="false"
                 className="h-12 text-base transition-all focus-visible:ring-2 focus-visible:ring-primary/50"
               />
               <div className="flex items-center justify-between gap-3">
