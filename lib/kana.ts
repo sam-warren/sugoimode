@@ -130,14 +130,19 @@ export const getKanaSet = (script: ScriptType): KanaChar[] =>
 
 export const randomKanaString = (script: ScriptType, length: number): KanaChar[] => {
   const set = getKanaSet(script);
-  const result: KanaChar[] = [];
-
-  for (let i = 0; i < length; i++) {
-    const idx = Math.floor(Math.random() * set.length);
-    result.push(set[idx]);
+  
+  // Ensure we don't request more characters than available
+  const maxLength = Math.min(length, set.length);
+  
+  // Create a shuffled copy of the set
+  const shuffled = [...set];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-
-  return result;
+  
+  // Return the first maxLength characters (all unique)
+  return shuffled.slice(0, maxLength);
 };
 
 export const normalizeRomaji = (value: string) =>
