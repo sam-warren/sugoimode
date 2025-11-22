@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kana Trainer - Hiragana & Katakana Practice",
-  description: "Practice and master Japanese hiragana and katakana characters",
+  title: "sugoimode",
+  description: "a website for mark",
 };
 
 export default function RootLayout({
